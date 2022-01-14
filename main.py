@@ -7,11 +7,23 @@ from bot_acik_tut import keep_alive
 activity = activity = discord.Game(name="Visual Studio Code")
 bot = commands.Bot(
     command_prefix="!",
+    help_command=None,
     case_insensitive=True,
     activity=activity,
     status=discord.Status.idle,
 )
 
+# kick
+@bot.command(aliases=["at", "kov"])
+async def kick(ctx, member: discord.Member, *, reason=None):
+  if ctx.message.author.id == 184317914441187328:
+    await member.kick(reason=reason)
+    await ctx.send(
+        str(member) + " Kicked from this server.\nReason for being kicked out: " + str(reason))
+  else:
+    await ctx.send(
+            "This command is currently only used by the creator because of the thought of breaking the integrity."
+        )
 
 @bot.event
 async def on_ready():
@@ -21,89 +33,53 @@ async def on_ready():
 async def on_command_error(ctx, error):
   if isinstance(error, commands.CommandNotFound):
     return
-  if isinstance(error, commands.CommandInvokeError):
-    await ctx.send("yüklenemedi")
+  
+  if isinstance(error, commands.MemberNotFound):
+    await ctx.send("Couldn't find the member <:peepo_shrug:895380755868446751>")
     return
   raise error
 
-
-# ana fonk.
-
-
-####### KOMUTLAR #######
-# * işaretini kullanmanın sebebi 6.45sn  https://www.youtube.com/watch?v=THj99FuPJmI&ab_channel=Lucas
-
-# kick
-@bot.command(aliases=["kick", "kov"])
-async def at(ctx, member: discord.Member, *, reason=None):
-    if ctx.message.author.id == 184317914441187328:
-        await member.kick(reason=reason)
-        await ctx.send(
-            str(member) + " bu sunucudan kovuldu.\nKovulma nedeni: " + str(reason)
-        )
-    else:
-        await ctx.send(
-            "Bu komut bütünlüğü bozar düşüncesi ile şuanlık sadece yapımcı tarafından kullanılıyor."
-        )
-
-
-###### resime yazı yazma ######
-
-# kart çekme -draw
-
-
-
-# change my mind
-
-
-### !yaz ###
-
-
-
-####### cog yükleme falan
-@bot.command()
-async def ekle(ctx, extension=None):
+####### cog inserting etc.
+@bot.command(aliases=["ekle"])
+async def insert(ctx, extension=None):
   if ctx.message.author.id == 184317914441187328:
     if not extension:
-      await ctx.send("cog ismini girmeden bunu yapamam")
+      await ctx.send("I can't do this without entering the cog name")
       return
     else:
       bot.load_extension(f"cogs.{extension}")
-      await ctx.send(f"{extension} eklendi.")
+      await ctx.send(f"{extension} inserted. 🌪️")
   else:
-    await ctx.send("yalnızca yapımcı ekleme yapabilir <:mad:895380785543131138>")  
+    await ctx.send("only the creator can insert <:mad:895380785543131138>")  
 
 @bot.command(aliases=["çıkar"])
-async def cikar(ctx, extension=None):
+async def extract(ctx, extension=None):
   if ctx.message.author.id == 184317914441187328:
     if not extension:
-      await ctx.send("cog ismini girmeden bunu yapamam")
+      await ctx.send("I can't do this without entering the cog name")
       return
     else:
       bot.unload_extension(f"cogs.{extension}")
-      await ctx.send(f"{extension} çıkarıldı.")
+      await ctx.send(f"{extension} extracted. 🌪️")
   else:
-    await ctx.send("yalnızca yapımcı çıkarma yapabilir <:mad:895380785543131138>")
+    await ctx.send("only the creator can extract <:mad:895380785543131138>")
 
 @bot.command(aliases=["yükle"])
-async def yukle(ctx, extension=None):
+async def reload(ctx, extension=None):
   if ctx.message.author.id == 184317914441187328:
     if not extension:
-      await ctx.send("cog ismini girmeden bunu yapamam")
+      await ctx.send("I can't do this without entering the cog name")
       return
     else:  
       bot.unload_extension(f"cogs.{extension}")
       bot.load_extension(f"cogs.{extension}")
-    await ctx.send(f"{extension} yeniden yüklendi.")
+    await ctx.send(f"{extension} reloaded. 🌪️")
   else:
-    await ctx.send("yalnızca yapımcı yükleme yapabilir <:mad:895380785543131138>")
-
+    await ctx.send("only the creator can reload <:mad:895380785543131138>")
     
 for filename in os.listdir("./cogs"):
   if filename.endswith(".py"):
     bot.load_extension(f"cogs.{filename[:-3]}")
-
-
 
 keep_alive()
 # run
