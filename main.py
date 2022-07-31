@@ -1,8 +1,10 @@
 import os
 import discord
 from discord.ext import commands
-from bot_acik_tut import keep_alive
+from bot_wakey import keep_alive
 
+intents = discord.Intents.default()
+intents.members = True
 
 activity = activity = discord.Game(name="Visual Studio Code")
 bot = commands.Bot(
@@ -10,7 +12,8 @@ bot = commands.Bot(
     help_command=None,
     case_insensitive=True,
     activity=activity,
-    status=discord.Status.idle,
+    status=discord.Status.idle, 
+    intents=intents
 )
 
 # kick

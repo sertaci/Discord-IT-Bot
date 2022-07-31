@@ -13,7 +13,7 @@ class Expressions(commands.Cog):
 
     # kanala özel cevap
     kanal_id = message.channel.id
-    if kanal_id == 856259013774671893 or kanal_id == 915676398390231044:
+    if kanal_id == 915676398390231044:
         await message.channel.send("<:note:895380794300833844>")
 
     # kişiye özel cevap (id için sağ menüden sağ tıklayıp al)

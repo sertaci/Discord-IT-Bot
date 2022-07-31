@@ -5,10 +5,16 @@ from PIL import Image, ImageFont, ImageDraw
 import textwrap
 import os
 
+
 class Commands(commands.Cog):
   def __init__(self,bot):
     self.bot = bot
 
+  @commands.command()
+  async def members(self, ctx):
+    for guild in self.bot.guilds:
+        for member in guild.members:
+            print(member, member.joined_at, member.nick, member.id, member.roles, member.leaved_at)
 #help
   @commands.command()
   async def help(self, ctx):
@@ -59,6 +65,14 @@ This is exclusive to the creator```""" + "```> maybe there is a stack of command
       message = ctx.message
       await message.delete()
       await ctx.send(f"{text}", tts=True)
+
+  @commands.command()
+  async def join(self, ctx):
+    channel = ctx.author.voice.channel
+    await channel.connect()
+  @commands.command()
+  async def leave(self, ctx):
+    await ctx.voice_client.disconnect()
 
   #random number
   @commands.command(aliases=["sayıçek"])
@@ -298,6 +312,8 @@ This is exclusive to the creator```""" + "```> maybe there is a stack of command
     await ctx.send(secim_iht)
 
 
+
+    
 #spoiler
   @commands.command(aliases=["spoiler", "spo"])
   async def spoi(self, ctx, *, text="You didn't write anything, but I'm writing this like it's a secret anyway <:happy2:895380897312952350>"):
