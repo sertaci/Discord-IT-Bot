@@ -11,4 +11,4 @@ I have used [discord.py](https://discordpy.readthedocs.io/en/stable/), [pillow](
 
 
 ## Available Commands:
-![image](https://user-images.githubusercontent.com/74237094/194171510-dab44263-ed53-487d-8598-0b79e59af9cd.png)
+![image](https://user-images.githubusercontent.com/74237094/194173275-900b789e-47ed-4138-9a7a-d2d0521c39a1.png)
