@@ -1,7 +1,4 @@
 ## DISCORD IT BOT
----
-Fun and meme bot for college discord server.
-
 
 ## About
 This discord bot is designed for entertainment purposes on my University's discord server. 
