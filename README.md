@@ -1,5 +1,5 @@
-# DISCORD IT BOT
-
+## DISCORD IT BOT
+---
 Fun and meme bot for college discord server.
 
 
