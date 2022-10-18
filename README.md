@@ -1,6 +1,5 @@
 ## DISCORD IT BOT
 
-## About
 This discord bot is designed for entertainment purposes on my University's discord server. 
 It offers features such as generating your own meme by writing on pictures, calculating probability, answering questions and many more. It is a multilingual bot, including English and Turkish.
 <br/><br/>
