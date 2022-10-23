@@ -76,26 +76,26 @@ This is exclusive to the creator```""" + "```> maybe there is a stack of command
 
   #random number
   @commands.command(aliases=["sayıçek"])
-  async def random(self, ctx, sayi1=None, sayi2=None):
-    if not sayi1 or not sayi2:
+  async def random(self, ctx, num1=None, num2=None):
+    if not num1 or not num2:
       await ctx.send("You must clarify a range")
       return
-    await ctx.send(str(randint(int(sayi1), int(sayi2))))
+    await ctx.send(str(randint(int(num1), int(num2))))
 
 # kart çekme -draw
   @commands.command(aliases=["çek", "kartçek"])
-  async def draw(self, ctx, kisi="no name entered", *, text="no text entered"):
-      resim_sec3 = choice(os.listdir(".//discord_bot_replit/draw_kart"))
-      resim_secildi3 = os.path.join(".//discord_bot_replit/draw_kart", resim_sec3)
+  async def draw(self, ctx, kisi="no name entered!", *, text="no text entered!"):
+      pck_img3 = choice(os.listdir(".//discord_bot_replit/draw_kart"))
+      picked_img3 = os.path.join(".//discord_bot_replit/draw_kart", pck_img3)
 
-      img3 = Image.open(resim_secildi3)
+      img3 = Image.open(picked_img3)
       draw3 = ImageDraw.Draw(img3)
 
       message = ctx.message
       content = ctx.message.content
-      karakter_uzunluk = len(content)
+      char_len = len(content)
 
-      if karakter_uzunluk > 110:
+      if char_len > 110:
           await ctx.send("110 character limit exceeded. I'm still sending the message")
 
       font = ImageFont.truetype(r".//discord_bot_replit/Futura Bold font.ttf", 16)
@@ -116,17 +116,17 @@ This is exclusive to the creator```""" + "```> maybe there is a stack of command
   @commands.command()
   async def cmm(self,ctx, *, text="no text entered"):
 
-      resim_sec2 = choice(os.listdir(".//discord_bot_replit/change_my_mind"))
-      resim_secildi2 = os.path.join(".//discord_bot_replit/change_my_mind", resim_sec2)
+      pck_img2 = choice(os.listdir(".//discord_bot_replit/change_my_mind"))
+      picked_img2 = os.path.join(".//discord_bot_replit/change_my_mind", pck_img2)
 
-      img2 = Image.open(resim_secildi2)
+      img2 = Image.open(picked_img2)
       draw2 = ImageDraw.Draw(img2)
 
       message = ctx.message
       content = ctx.message.content
-      karakter_uzunluk = len(content)
+      char_len = len(content)
 
-      if karakter_uzunluk > 150:
+      if char_len > 150:
         await ctx.send("150 character limit exceeded. I'm still sending the message")
 
       font = ImageFont.truetype(r".//discord_bot_replit/CENTURY.TTF", 13)
@@ -144,22 +144,22 @@ This is exclusive to the creator```""" + "```> maybe there is a stack of command
       
 ### !yaz ###
   @commands.command(aliases=["yaz", "yazdır"])
-  async def write(self, ctx, *, text="no text entered"):
+  async def write(self, ctx, *, text="no text entered!"):
 
-    resim_sec = choice(os.listdir(".//discord_bot_replit/resimler"))
-    resim_secildi = os.path.join(".//discord_bot_replit/resimler", resim_sec)
+    pck_img = choice(os.listdir(".//discord_bot_replit/images"))
+    picked_img = os.path.join(".//discord_bot_replit/images", pck_img)
 
-    img = Image.open(resim_secildi)
+    img = Image.open(picked_img)
     draw = ImageDraw.Draw(img)
 
     message = ctx.message
     content = ctx.message.content
-    karakter_uzunluk = len(content)
+    char_len = len(content)
 
-    if karakter_uzunluk > 200:
+    if char_len > 200:
         await ctx.send("200 character limit exceeded. I'm still sending the message")
 
-    if resim_sec == ("snoop.png"):
+    if pck_img == ("snoop.png"):
         font = ImageFont.truetype(r".//discord_bot_replit/Futura Bold font.ttf", 18)
         draw.text(
             (5, 100),
@@ -172,7 +172,7 @@ This is exclusive to the creator```""" + "```> maybe there is a stack of command
         await message.delete()
         await ctx.send(file=discord.File("test_snoop.png"))
 
-    elif resim_sec == ("jim.png"):
+    elif pck_img == ("jim.png"):
         font = ImageFont.truetype(r".//discord_bot_replit/Futura Bold font.ttf", 17)
         draw.text(
             (13, 55),
@@ -185,7 +185,7 @@ This is exclusive to the creator```""" + "```> maybe there is a stack of command
         await message.delete()
         await ctx.send(file=discord.File("test_jim.png"))
 
-    elif resim_sec == ("elon.png"):
+    elif pck_img == ("elon.png"):
         font = ImageFont.truetype(r".//discord_bot_replit/Futura Bold font.ttf", 14)
         draw.text(
             (5, 25),
@@ -198,7 +198,7 @@ This is exclusive to the creator```""" + "```> maybe there is a stack of command
         await message.delete()
         await ctx.send(file=discord.File("test_elon.png"))
 
-    elif resim_sec == ("harold.png"):
+    elif pck_img == ("harold.png"):
         font = ImageFont.truetype(r".//discord_bot_replit/Futura Bold font.ttf", 15)
         draw.text(
             (102, 215),
@@ -211,7 +211,7 @@ This is exclusive to the creator```""" + "```> maybe there is a stack of command
         await message.delete()
         await ctx.send(file=discord.File("test_harold.png"))
 
-    elif resim_sec == ("zucker.png"):
+    elif pck_img == ("zucker.png"):
         font = ImageFont.truetype(r".//discord_bot_replit/Futura Bold font.ttf", 17)
         draw.text(
             (53, 210),
@@ -224,7 +224,7 @@ This is exclusive to the creator```""" + "```> maybe there is a stack of command
         await message.delete()
         await ctx.send(file=discord.File("test.png"))
 
-    elif resim_sec == ("trump.png"):
+    elif pck_img == ("trump.png"):
         font = ImageFont.truetype(r".//discord_bot_replit/Futura Bold font.ttf", 14)
         draw.text(
             (50, 100),
