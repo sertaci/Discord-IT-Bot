@@ -87,4 +87,11 @@ for filename in os.listdir("./cogs"):
 keep_alive()
 # run
 my_secret = os.environ["TOKEN"]
-bot.run(my_secret)
+
+try:
+    bot.run(my_secret)
+except discord.errors.HTTPException:
+  if discord.errors.HTTPException().code == 429:
+    print("\n\n\nBLOCKED BY RATE LIMITS\nRESTARTING NOW\n\n\n")
+    os.system("python restarter.py")
+    os.system('kill 1')
