@@ -85,8 +85,8 @@ This is exclusive to the creator```""" + "```> maybe there is a stack of command
 # kart çekme -draw
   @commands.command(aliases=["çek", "kartçek"])
   async def draw(self, ctx, kisi="no name entered!", *, text="no text entered!"):
-      pck_img3 = choice(os.listdir(".//discord_bot_replit/draw_kart"))
-      picked_img3 = os.path.join(".//discord_bot_replit/draw_kart", pck_img3)
+      pck_img3 = choice(os.listdir(".//discord_bot_replit/draw_kard"))
+      picked_img3 = os.path.join(".//discord_bot_replit/draw_kard", pck_img3)
 
       img3 = Image.open(picked_img3)
       draw3 = ImageDraw.Draw(img3)
@@ -384,7 +384,7 @@ This is exclusive to the creator```""" + "```> maybe there is a stack of command
     message = ctx.message
     await message.delete()
     await ctx.send("Metin Aktaş's grading method")
-    await ctx.send(file=discord.File("ma.sucks.png"))
+    await ctx.send(file=discord.File("discord_bot_replit/ma_sucks.png"))
 
 def setup(bot):
   bot.add_cog(Commands(bot))
