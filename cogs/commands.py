@@ -94,7 +94,7 @@ This is exclusive to the creator```""" + "```> maybe there is a stack of command
       message = ctx.message
       content = ctx.message.content
       char_len = len(content)
-
+ 
       if char_len > 110:
           await ctx.send("110 character limit exceeded. I'm still sending the message")
 
